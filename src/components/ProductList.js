@@ -1,35 +1,15 @@
-// src/components/ProductList.js
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useProductViewModel from './viewmodel.ts';
 import './ProductList.css';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/products');
-        setProducts(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-        setError('Error al cargar los productos');
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  // Filtrar productos por el término de búsqueda
-  const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const {
+    loading,
+    error,
+    searchTerm,
+    setSearchTerm,
+    filteredProducts,
+  } = useProductViewModel();
 
   if (loading) {
     return <div className="loading">Cargando...</div>;
