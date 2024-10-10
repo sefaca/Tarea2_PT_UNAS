@@ -25,7 +25,7 @@ Para poner en marcha el proyecto, sigue estos pasos:
 Primero, clona este repositorio en tu máquina local:
 
 ```bash
-git clone https://github.com/tu-usuario/Tarea2PT.git
+git clone https://github.com/tu-usuario/Tarea2_PT_UNAS.git
 ```
 
 ## Paso 2: Instalar dependencias
@@ -71,11 +71,6 @@ npm start
 La aplicación estará disponible en http://localhost:3000.
 
 # Estructura del proyecto
-
-El proyecto está organizado en dos carpetas principales:
-
-- backend/: Contiene el código del servidor Node.js que actúa como proxy para consumir la API externa.
-- frontend/: Contiene el código de la aplicación React que maneja la interfaz de usuario.
 
 ## Backend
 
