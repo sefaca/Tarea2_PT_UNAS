@@ -35,7 +35,7 @@ Backend
 Ve al directorio backend e instala las dependencias de Node.js:
 
 ```bash
-cd tarea2pt/backend
+cd Tarea2_PT_UNAS-main/backend
 npm install
 ```
 
@@ -44,7 +44,7 @@ Frontend
 Ahora, navega al directorio del frontend e instala las dependencias de React:
 
 ```bash
-cd ../frontend
+cd Tarea2_PT_UNAS-main
 npm install
 ```
 
@@ -53,7 +53,7 @@ npm install
 Una vez instaladas las dependencias, inicia el servidor backend. Este servidor actuará como intermediario entre el frontend y la API de productos:
 
 ```bash
-cd ../backend
+cd Tarea2_PT_UNAS-main/backend
 node server.js
 ```
 
@@ -64,7 +64,7 @@ El backend estará escuchando en http://localhost:5000.
 Con el backend en marcha, ahora puedes ejecutar la aplicación React:
 
 ```bash
-cd ../frontend
+cd Tarea2_PT_UNAS-main
 npm start
 ```
 
