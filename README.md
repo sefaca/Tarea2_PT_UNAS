@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Tarea 2 - Consumo de API Externa con React y Node.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una aplicación web desarrollada con **React** en el frontend y **Node.js** en el backend que consume una API externa para mostrar productos. El objetivo es simular un sistema de listado de productos donde se pueden buscar artículos por título. Este proyecto forma parte de una prueba técnica.
 
-## Available Scripts
+# Índice
 
-In the project directory, you can run:
+- [Introducción](#introducción)
+- [Primeros pasos](#primeros-pasos)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
+- [Configuración del backend](#configuración-del-backend)
+- [Configuración del frontend](#configuración-del-frontend)
+- [Aprendizaje y desarrollo](#aprendizaje-y-desarrollo)
 
-### `npm start`
+# Introducción
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este proyecto está diseñado para mostrar una lista de productos obtenida de una API externa (Fake Store API). Permite realizar búsquedas filtrando por el nombre del producto. El proyecto combina un frontend dinámico desarrollado con **React** y un backend con **Node.js** que actúa como proxy para consumir la API externa.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Primeros pasos
 
-### `npm test`
+Para poner en marcha el proyecto, sigue estos pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Paso 1: Clonar el repositorio
 
-### `npm run build`
+Primero, clona este repositorio en tu máquina local:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/tu-usuario/Tarea2PT.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Paso 2: Instalar dependencias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend
 
-### `npm run eject`
+Ve al directorio backend e instala las dependencias de Node.js:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd tarea2pt/backend
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Ahora, navega al directorio del frontend e instala las dependencias de React:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd ../frontend
+npm install
+```
 
-## Learn More
+## Paso 3: Ejecutar el backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Una vez instaladas las dependencias, inicia el servidor backend. Este servidor actuará como intermediario entre el frontend y la API de productos:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd ../backend
+node server.js
+```
 
-### Code Splitting
+El backend estará escuchando en http://localhost:5000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Paso 4: Ejecutar el frontend
 
-### Analyzing the Bundle Size
+Con el backend en marcha, ahora puedes ejecutar la aplicación React:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd ../frontend
+npm start
+```
 
-### Making a Progressive Web App
+La aplicación estará disponible en http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Estructura del proyecto
 
-### Advanced Configuration
+El proyecto está organizado en dos carpetas principales:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- backend/: Contiene el código del servidor Node.js que actúa como proxy para consumir la API externa.
+- frontend/: Contiene el código de la aplicación React que maneja la interfaz de usuario.
 
-### Deployment
+## Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- server.js: Configuración del servidor Express y las rutas para consumir la API de productos.
+- package.json: Lista de dependencias y scripts del backend (Node.js y Express).
 
-### `npm run build` fails to minify
+## Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- src/components/: Contiene los componentes principales, como ProductList para listar los productos.
+- src/components/viewmodel.ts: Lógica central para la obtención y filtrado de productos.
+- src/App.js: Punto de entrada principal de la aplicación React.
+- package.json: Lista de dependencias y scripts del frontend (React y Axios).
+
+# Tecnologías y herramientas utilizadas
+
+## Backend
+
+- Node.js: El entorno de ejecución de JavaScript utilizado para construir el servidor backend.
+- Express: Framework para manejar las rutas y peticiones HTTP en el servidor.
+- Axios: Cliente HTTP utilizado para hacer peticiones a la API externa desde el servidor Node.js.
+
+## Frontend
+
+- React: Biblioteca de JavaScript utilizada para construir la interfaz de usuario.
+- Axios: Cliente HTTP utilizado para hacer peticiones al backend.
+- CSS: Utilizado para darle estilo a la interfaz de usuario.
+
+# Configuración del backend
+
+El backend está basado en Node.js y utiliza Express para manejar las solicitudes. Se conecta a la API externa de productos, la cual está disponible en https://fakestoreapi.com/products. Para ejecutar el servidor backend:
+
+- Navega a la carpeta backend.
+- Ejecuta el comando:
+
+```bash
+node server.js
+```
+
+El servidor estará escuchando en http://localhost:5000, y puedes hacer peticiones a http://localhost:5000/api/products para obtener los productos.
+
+# Configuración del frontend
+
+El frontend está basado en React y se conecta al servidor backend para obtener los productos. Para iniciar el frontend:
+
+- Navega a la carpeta frontend.
+- Ejecuta el comando:
+
+```bash
+npm start
+```
+
+La aplicación estará corriendo en http://localhost:3000 y mostrará una lista de productos con opciones de búsqueda.
+
+# Aprendizaje y desarrollo
+
+Este proyecto fue una gran oportunidad para aplicar conceptos fundamentales de desarrollo web utilizando tanto tecnologías frontend como backend. Algunos puntos clave del aprendizaje incluyen:
+
+- Manejo de APIs externas: Uso de Axios tanto en el frontend como en el backend para realizar peticiones HTTP a APIs externas.
+- Separación de lógica de presentación y lógica de negocio: Se implementó la lógica de obtención de datos en un hook personalizado (viewmodel.ts) para mejorar la organización del código.
+- Creación de un backend simple con Node.js: Implementación de un servidor Express que actúa como intermediario entre el frontend y la API externa, lo que facilita la integración.
+- Estilo y diseño: Aplicación de estilos CSS para mejorar la presentación de la lista de productos.
+
+Este proyecto es un buen punto de partida para expandir funcionalidades, como la posibilidad de agregar, actualizar o eliminar productos si la API lo permitiera.
